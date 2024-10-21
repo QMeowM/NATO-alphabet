@@ -10,7 +10,14 @@ dic = {row.letter:row.code for (index, row) in data.iterrows()}
 # print(dic)
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+def quest():
+    word = input("What's the word? : ").upper()
+    try:
+        result = [dic[i] for i in word]
+    except KeyError:
+        print("Sorry, only letters in the alphabet please.")
+        quest()
+    else:
+        print(result)
 
-quest = input("What's the word? : ").upper()
-result = [dic[i] for i in quest]
-print(result)
+quest()
